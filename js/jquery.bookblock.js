@@ -69,6 +69,8 @@
 	$.BookBlock.defaults = {
 		// speed for the flip transition in ms
 		speed : 1000,
+		// class for item
+		item:'bb-item'
 		// easing for the flip transition
 		easing : 'ease-in-out',
 		// if set to true, both the flipping page and the sides will have an overlay to simulate shadows
@@ -135,7 +137,7 @@
 				'msTransition': 'MSTransitionEnd',
 				'transition': 'transitionend'
 			};
-			this.transEndEventName = transEndEventNames[Modernizr.prefixed('transition')] + '.bookblock';
+			this.transEndEventName = transEndEventNames['WebkitTransition'] + '.bookblock';
 			// support (3dtransforms && transitions)
 			this.support = Modernizr.csstransitions && Modernizr.csstransforms3d;
 			// initialize/bind some events
