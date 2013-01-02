@@ -70,7 +70,7 @@
 		// speed for the flip transition in ms
 		speed : 1000,
 		// class for item
-		item:'bb-item'
+		item:'bb-item',
 		// easing for the flip transition
 		easing : 'ease-in-out',
 		// if set to true, both the flipping page and the sides will have an overlay to simulate shadows
@@ -288,8 +288,7 @@
 
 				// basic structure:
 				// 1 element for the left side.
-				$s_left = this._addSide('left', dir),
-				// 1 element for the flipping/middle page
+				$s_left = this._addSide('left', dir), // 1 element for the flipping/middle page
 				$s_middle = this._addSide('middle', dir),
 				// 1 element for the right side
 				$s_right = this._addSide('right', dir),
@@ -408,20 +407,26 @@
 
 			case 'left':
 					/*
-					<div class="bb-page" style="z-index:2;">
-						<div class="bb-back">
-							<div class="bb-outer">
-								<div class="bb-content">
-									<div class="bb-inner">
-										dir==='next' ? [content of current page] : [content of next page]
+					
+							<div class="bb-page" style="z-index:2;">
+								<div class="bb-back">
+									<div class="bb-outer">
+										<div class="bb-content">
+											<div class="bb-inner">
+												<svg width='100%' height='100%' >
+  												<foreignObject  width='100%' height='100%'>
+														dir==='next' ? [content of current page] : [content of next page]
+													</foreignObject>
+												</svg>
+											</div>
+										</div>
+										<div class="bb-overlay"></div>
 									</div>
 								</div>
-								<div class="bb-overlay"></div>
 							</div>
-						</div>
-					</div>
+					
 					*/
-				$side = $('<div class="bb-page"><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 102);
+				$side = $('<div class="bb-page"><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner"><svg width="100%" height="100%" ><foreignObject  width="100%" height="100%">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</foreignObject></svg></div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 102);
 				break;
 
 			case 'middle':
@@ -449,7 +454,7 @@
 						</div>
 					</div>
 					*/
-				$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content" style="left:' + (-this.elWidth / 2) + 'px;width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-flipoverlay"></div></div></div></div>').css('z-index', 103);
+				$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content" style="left:' + (-this.elWidth / 2) + 'px;width:' + this.elWidth + 'px"><div class="bb-inner"><svg width="100%" height="100%" ><foreignObject  width="100%" height="100%">' + (dir === 'next' ? this.$current.html() : this.$nextItem.html()) + '</foreignObject></svg></div></div><div class="bb-flipoverlay"></div></div></div><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:' + this.elWidth + 'px"><div class="bb-inner"><svg width="100%" height="100%" ><foreignObject  width="100%" height="100%">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</foreignObject></svg></div></div><div class="bb-flipoverlay"></div></div></div></div>').css('z-index', 103);
 				break;
 
 			case 'right':
@@ -467,7 +472,7 @@
 						</div>
 					</div>
 					*/
-				$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content" style="left:' + (-this.elWidth / 2) + 'px;width:' + this.elWidth + 'px"><div class="bb-inner">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 101);
+				$side = $('<div class="bb-page"><div class="bb-front"><div class="bb-outer"><div class="bb-content" style="left:' + (-this.elWidth / 2) + 'px;width:' + this.elWidth + 'px"><div class="bb-inner"><svg width="100%" height="100%" ><foreignObject  width="100%" height="100%">' + (dir === 'next' ? this.$nextItem.html() : this.$current.html()) + '</foreignObject></svg></div></div><div class="bb-overlay"></div></div></div></div>').css('z-index', 101);
 				break;
 
 			}
