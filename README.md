@@ -9,3 +9,4 @@ A jQuery plugin that will create a booklet-like component that let's you navigat
 [demo](http://tympanus.net/Development/BookBlock/)
 
 Licensed under the MIT License
+test
